@@ -1,15 +1,8 @@
 import React from "react";
 
 function MainPage() {
-  return ()
-  
-}
-
-import React from "react";
-
-function MainPage() {
   return (
-    
+    <div>Main page</div>
   );
 }
 

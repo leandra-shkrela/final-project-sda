@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import MainPage from "./pages/MainPage"
-import SingleProduct from "./pages/SingleProduct"
-import ShoppingCart from "./pages/ShoppingCart"
-import AllProducts from "./pages/AllProducts"
-import Checkout from "./pages/Checkout"
+import MainPage from "./routes/MainPage"
+import SingleProduct from "./routes/SingleProduct"
+import ShoppingCart from "./routes/ShoppingCart"
+import AllProducts from "./routes/AllProducts"
+import Checkout from "./routes/Checkout"
 
 function App() {
   return (
