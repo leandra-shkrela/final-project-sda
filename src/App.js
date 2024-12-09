@@ -7,6 +7,7 @@ import ShoppingCart from "./routes/ShoppingCart";
 import AllProducts from "./routes/AllProducts";
 import Checkout from "./routes/Checkout";
 import SearchBar from "./routes/SearchBar";
+import ContactUs from "./routes/ContactUs";
 
 function App() {
   return (
@@ -20,8 +21,15 @@ function App() {
         <Route path="/cart" element={<ShoppingCart />} /> {/* Shopping Cart */}
         <Route path="/checkout" element={<Checkout />} /> {/* Checkout */}
         <Route path="/searchbar" element={<SearchBar />} />
+        <Route path="/contactus" element={<ContactUs />} />
       </Routes>
     </Router>
+    // (
+    //   <div className="search-bar-container">
+    //     <SearchBar />
+    //     <div>SeachResults</div>
+    //   </div>
+    // )
   );
 }
 

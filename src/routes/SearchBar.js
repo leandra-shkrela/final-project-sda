@@ -1,21 +1,34 @@
-import React from "react";
-const SearchBar = ({ setSearchTerm }) => {
-  const handleInputChange = (event) => {
-    setSearchTerm(event.target.value);
+import React, { useState } from "react";
+import "./SearchBar.css";
+import { FaSearch } from "react-icons/fa";
+
+export const SearchBar = () => {
+  const [input, setInput] = useState("");
+
+  const fetchData = (value) => {
+    fetch("antiqueitems.json")
+      .then((Response) => Response.json())
+      .then((json) => {
+        console.log(json);
+      });
   };
+
+  const handleChange = (value) => {
+    setInput(value);
+    fetchData(value);
+  };
+
   return (
-    <div style={{ marginBottom: "20px" }}>
+    <div className="input-wrapper">
+      SearchBar
+      <FaSearch id="search-icon" />
       <input
-        type="text"
-        placeholder="Search for a product..."
-        onChange={handleInputChange}
-        style={{
-          padding: "10px",
-          width: "300px",
-          fontSize: "16px",
-        }}
+        placeholder="Type to search..."
+        value={input}
+        onChange={(e) => handleChange(e.target.value)}
       />
     </div>
   );
 };
+
 export default SearchBar;
