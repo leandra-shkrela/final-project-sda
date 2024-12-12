@@ -21,14 +21,14 @@ function MainPage() {
           {categories.length === 0 ? (
             <p>No items found</p> // Display message when no items are found
           ) : (
-            categories.map((product) => (
-              <div className="product" key={product.id}>
+            categories.map((category) => (
+              <div className="product" key={category.id}>
                 <img
                   className="product-image"
-                  src={product.image}
-                  alt={product.image}
+                  src={category.image}
+                  alt={category.image}
                 />
-                <h4 className="product-name">{product.name}</h4>
+                <h4 className="product-name">{category.name}</h4>
                 <div className="buttons">
                   <button className="btn">More</button>
                 </div>
