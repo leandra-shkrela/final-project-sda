@@ -17,7 +17,6 @@ function MainPage() {
       <Link to="product/:id">SingleProduct</Link>
       <Link to="checkout">Checkout</Link>
       <Link to="contactus">ContactUs</Link>
-
     </ul>
   );
 }
