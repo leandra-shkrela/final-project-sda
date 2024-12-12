@@ -19,9 +19,7 @@ function App() {
         {/* single products */}
         <Route path="/shopping" element={<Shopping />} /> {/* Shopping Cart */}
         <Route path="/checkout" element={<Checkout />} /> {/* Checkout */}
-        {/*SearchBar*/}
         <Route path="/contactus" element={<ContactUs />} />
-        {/*ContactUs*/}
       </Routes>
     </Router>
   );
