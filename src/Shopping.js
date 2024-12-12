@@ -5,15 +5,18 @@ import ShoppingCart from "./routes/ShoppingCart";
 import { products } from "./data/antiqueitems";
 import Header from "./routes/Header";
 import Footer from "./routes/Footer";
+import queryString from "query-string";
 
 function Shopping() {
   const [cartsVisibilty, setCartVisible] = useState(false);
+  const params = queryString.parse(window.location.search);
   const [searchTerm, setSearchTerm] = useState("");
   const [productsInCart, setProducts] = useState(
     JSON.parse(localStorage.getItem("shopping-cart")) || []
   );
   useEffect(() => {
     localStorage.setItem("shopping-cart", JSON.stringify(productsInCart));
+    console.log(params.categoryId);
   }, [productsInCart]);
   const addProductToCart = (product) => {
     const newProduct = {
@@ -44,12 +47,16 @@ function Shopping() {
       return [...oldState];
     });
   };
+
   const handleSearchChange = (e) => {
     console.log(e.target.value);
     setSearchTerm(e.target.value);
   };
-  const filteredItems = products.filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+
+  const filteredItems = products.filter(
+    (item) =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      item.categoryId == params.categoryId
   );
 
   return (

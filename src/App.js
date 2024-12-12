@@ -18,6 +18,8 @@ function App() {
         <Route path="/product/:id" element={<SingleProduct />} />
         {/* single products */}
         <Route path="/shopping" element={<Shopping />} /> {/* Shopping Cart */}
+        <Route path="/shopping/:categoryId" element={<Shopping />} />{" "}
+        {/* Shopping Cart */}
         <Route path="/checkout" element={<Checkout />} /> {/* Checkout */}
         <Route path="/contactus" element={<ContactUs />} />
       </Routes>

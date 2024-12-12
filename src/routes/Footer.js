@@ -6,7 +6,7 @@ function Footer() {
   const currentYear = new Date(122).getFullYear();
   return (
     <footer>
-      <div class="container">
+      <div className="container">
         <p>&copy; 2024 Udemy. Të gjitha të drejtat e rezervuara.</p>
         <ul>
           <li>
@@ -20,7 +20,7 @@ function Footer() {
           </li>
         </ul>
         <p>Na ndiqni në:</p>
-        <ul class="social-links">
+        <ul className="social-links">
           <li>
             <a href="https://facebook.com" target="_blank">
               Facebook

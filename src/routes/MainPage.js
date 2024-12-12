@@ -3,6 +3,8 @@ import "../style/main.css";
 import { categories } from "../data/antiquecategories";
 import Header from "../routes/Header";
 import Footer from "../routes/Footer";
+import { Link } from "react-router-dom";
+import Shopping from "../Shopping";
 
 function MainPage() {
   // const [categories, setCategories] = useState([]);
@@ -30,7 +32,12 @@ function MainPage() {
                 />
                 <h4 className="product-name">{category.name}</h4>
                 <div className="buttons">
-                  <button className="btn">More</button>
+                  <Link
+                    className="btn"
+                    to={`/shopping?categoryId=${category.id}`}
+                  >
+                    More
+                  </Link>
                 </div>
               </div>
             ))
