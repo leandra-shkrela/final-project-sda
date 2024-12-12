@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./ContactUs.css";
 import Header from "./Header";
+import Footer from "./Footer";
 
 function ContactUs() {
   const [formData, setFormData] = useState({
@@ -62,43 +63,9 @@ function ContactUs() {
           <button type="submit">Send</button>
         </form>
       </div>
+      <Footer></Footer>
     </>
   );
 }
 
 export default ContactUs;
-
-<footer>
-  <div class="container">
-    <p>&copy; 2024 Udemy. Të gjitha të drejtat e rezervuara.</p>
-    <ul>
-      <li>
-        <a href="/about">Rreth Nesh</a>
-      </li>
-      <li>
-        <a href="/privacy">Politika e Privatësisë</a>
-      </li>
-      <li>
-        <a href="/contact">Na Kontaktoni</a>
-      </li>
-    </ul>
-    <p>Na ndiqni në:</p>
-    <ul class="social-links">
-      <li>
-        <a href="https://facebook.com" target="_blank">
-          Facebook
-        </a>
-      </li>
-      <li>
-        <a href="https://twitter.com" target="_blank">
-          Twitter
-        </a>
-      </li>
-      <li>
-        <a href="https://instagram.com" target="_blank">
-          Instagram
-        </a>
-      </li>
-    </ul>
-  </div>
-</footer>;

@@ -4,6 +4,7 @@ import { GiShoppingBag } from "react-icons/gi";
 import ShoppingCart from "./routes/ShoppingCart";
 import { products } from "./data/antiqueitems";
 import Header from "./routes/Header";
+import Footer from "./routes/Footer";
 
 function Shopping() {
   const [cartsVisibilty, setCartVisible] = useState(false);
@@ -117,6 +118,7 @@ function Shopping() {
           )}
         </div>
       </main>
+      <Footer></Footer>
     </div>
   );
 }
