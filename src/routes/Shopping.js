@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./style/main.css";
+import "../style/main.css";
 import { GiShoppingBag } from "react-icons/gi";
-import ShoppingCart from "./routes/ShoppingCart";
-import { products } from "./data/antiqueitems";
-import Header from "./routes/Header";
-import Footer from "./routes/Footer";
+import ShoppingCart from "./ShoppingCart";
+import { products } from "../data/antiqueitems";
+import Header from "./Header";
+import Footer from "./Footer";
+import { Link } from "react-router-dom";
 import queryString from "query-string";
 
 function Shopping() {
@@ -96,7 +97,7 @@ function Shopping() {
             }}
           />
         </p>
-        <h2 className="title">Products</h2>
+        <h2 className="title">Products in {params.name}</h2>
         <div className="products">
           {filteredItems.length === 0 ? (
             <p>No items found</p> // Display message when no items are found
@@ -112,7 +113,9 @@ function Shopping() {
                 <p>{product.description}</p>
                 <span className="product-price">{product.price}$</span>
                 <div className="buttons">
-                  <button className="btn">Detail</button>
+                  <Link className="btn" to={`/product?id=${product.id}`}>
+                    Detail
+                  </Link>
                   <button
                     className="btn"
                     onClick={() => addProductToCart(product)}

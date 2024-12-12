@@ -6,14 +6,14 @@ import SingleProduct from "./routes/SingleProduct";
 import AllProducts from "./routes/AllProducts";
 import Checkout from "./routes/Checkout";
 import ContactUs from "./routes/ContactUs";
-import Shopping from "./Shopping";
+import Shopping from "./routes/Shopping";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<MainPage />} /> {/*fq 1*/}
-        <Route path="/products" element={<AllProducts />} />{" "}
+        <Route path="/product" element={<SingleProduct />} />{" "}
         {/*te gjitha produktet */}
         <Route path="/product/:id" element={<SingleProduct />} />
         {/* single products */}
