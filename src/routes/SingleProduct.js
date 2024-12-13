@@ -1,37 +1,58 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import queryString from "query-string";
 import { products } from "../data/antiqueitems";
 import "../routes/SingleProduct.css";
 import Header from "./Header";
 import Footer from "./Footer";
+
 function SingleProduct() {
   const params = queryString.parse(window.location.search);
 
-  // return <h1>Product Details for Product ID: {params.id}</h1>;
   const [product, setProduct] = useState(null);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    filteredItems();
-    console.log(product);
-    //setProduct(products.filter((product) => product.id == params.id));
-  }, []);
+    const fetchData = async () => {
+      try {
+        // Assuming getData is an async function
+        const data = await filteredItem();
+        console.log(data);
 
-  const filteredItems = () => {
-    const seleted = products.filter((product) => product.id === params.id);
-    console.log(seleted);
+        setProduct(data); // Store the fetched data in state
+        console.log(product);
+
+        setLoaded(true); // Update loading state after data is fetched
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+        setLoaded(true); // Ensure loading state is updated even if fetching fails
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array means this effect runs once on mount
+
+  const filteredItem = async () => {
+    return products.find((product) => product.id == params.id);
   };
 
   return (
     <>
       <Header />
-      {product && (
-        <>
+
+      {!loaded ? (
+        <p>Loading ....</p>
+      ) : (
+        <div key={product.id}>
           <div>Product Id: {product.id}</div>
           <div>Product Name: {product.name}</div>
           <div>Product description: {product.description}</div>
           <div>Product price: {product.price}</div>
-          <div>Product image: {product.image}</div>
-        </>
+          <img
+            className="product-image"
+            src={product.image}
+            alt={product.image}
+          />
+        </div>
       )}
       <Footer />
     </>

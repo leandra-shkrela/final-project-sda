@@ -110,6 +110,7 @@ function Shopping() {
                   alt={product.image}
                 />
                 <h4 className="product-name">{product.name}</h4>
+                <p>test</p>
                 <p>{product.description}</p>
                 <span className="product-price">{product.price}$</span>
                 <div className="buttons">
