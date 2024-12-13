@@ -62,7 +62,9 @@ export const ShoppingCart = ({
             </div>
           ))}
           {products.length > 0 && (
-            <button className="btn checkout-btn">Proceed to checkout</button>
+            <a href="checkout" className="btn checkout-btn">
+              Proceed to checkout
+            </a>
           )}
         </div>
       </div>
