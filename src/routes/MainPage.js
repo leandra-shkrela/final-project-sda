@@ -6,6 +6,8 @@ import Footer from "../routes/Footer";
 import { Link } from "react-router-dom";
 import Shopping from "./Shopping";
 
+
+
 const HowToOrder = () => {
   return (
     <section className="how-to-order">

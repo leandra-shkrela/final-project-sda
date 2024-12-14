@@ -6,9 +6,8 @@ function Header() {
   return (
     <div className="navbar">
       <Link to="/">Home</Link>
-      <Link to="shopping">Shopping</Link>
-      <Link to="checkout">Checkout</Link>
-      <Link to="contactus">Contact Us</Link>
+      <Link to="/checkout">Checkout</Link>
+      <Link to="/contactus">Contact Us</Link>
     </div>
   );
 }

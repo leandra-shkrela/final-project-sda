@@ -18,18 +18,19 @@
 	flex-direction: column;
 }
 
-.navbar {
+ .navbar {
 	flex-basis: 100%;
 	background-color: var(--main-color);
 	padding: 15px 2rem;
 	display: flex;
 	justify-content: space-between;
-}
+ }
 
-.navbar .logo {
+
+ .navbar .logo {
 	color: #fff;
-	text-transform: uppercase;
-}
+	text-transform: uppercase; 
+ }
 
 .btn {
 	border: none;
@@ -161,3 +162,4 @@ main {
 a {
     color: #fff;
 }
+
