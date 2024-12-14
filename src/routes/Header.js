@@ -46,7 +46,11 @@ function Header({ productsInCart, setCartVisible }) {
                 Login
               </Nav.Link>
             ) : (
-              <NavDropdown title="Profile" id="basic-nav-dropdown">
+              <NavDropdown
+                title="Profile"
+                id="basic-nav-dropdown"
+                style={{ paddingTop: "10px" }}
+              >
                 <NavDropdown.Item href="/wishlist">Wishlist</NavDropdown.Item>
                 <NavDropdown.Item href="/orders">Orders</NavDropdown.Item>
                 <NavDropdown.Divider />
