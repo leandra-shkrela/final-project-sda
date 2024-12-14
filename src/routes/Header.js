@@ -17,40 +17,36 @@ function Header({ productsInCart, setCartVisible }) {
     window.location.reload();
   };
   return (
-    <Navbar expand="lg" className="bg-body-tertiary navbar-nav">
+    <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="/">Antique Al</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto navbar-nav">
-            <Nav.Link href="/" className="nav-link">
+          <Nav className="me-auto">
+            <Nav.Link href="/" style={{ paddingTop: "20px" }}>
               Home
             </Nav.Link>
-            <Nav.Link href="/contactus" className="nav-link">
+            <Nav.Link href="/contactus" style={{ paddingTop: "20px" }}>
               Contact Us
             </Nav.Link>
-            <Nav.Link href="#" className="nav-link">
+            <Nav.Link href="#">
               {" "}
               <button
                 className="btn shopping-cart-btn"
                 onClick={() => setCartVisible(true)}
               >
-                <GiShoppingBag className="nav-link" size={40} />
+                <GiShoppingBag className="shoppingbag" size={35} />
                 {productsInCart.length > 0 && (
                   <span className="product-count">{productsInCart.length}</span>
                 )}
               </button>
             </Nav.Link>
             {!token ? (
-              <Nav.Link href="/login" className="nav-link login-link">
+              <Nav.Link href="/login" style={{ paddingTop: "20px" }}>
                 Login
               </Nav.Link>
             ) : (
-              <NavDropdown
-                title="Profile"
-                className="nav-link login-link"
-                id="basic-nav-dropdown"
-              >
+              <NavDropdown title="Profile" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/wishlist">Wishlist</NavDropdown.Item>
                 <NavDropdown.Item href="/orders">Orders</NavDropdown.Item>
                 <NavDropdown.Divider />
