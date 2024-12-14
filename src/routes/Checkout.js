@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import "../style/main.css";
 
 function Checkout() {
   const [loaded, setLoaded] = useState(false);
@@ -23,24 +24,30 @@ function Checkout() {
   return (
     <>
       <Header></Header>
-      {productsInCart.length === 0 ? (
-        <p>No items found</p> // Display message when no items are found
-      ) : (
-        productsInCart.map((product) => (
-          <>
-            <div>Product Name: {product.name}</div>
-            <div>Product Price: {product.price}</div>
-            <hr />
-          </>
-        ))
-      )}
-      <div>
-        Total:{" "}
-        {Math.round(
-          productsInCart.reduce((sum, product) => sum + product.price, 0) * 100
-        ) / 100}
-      </div>
-      <Footer></Footer>
+      <body>
+        <div class="main-content">
+          {productsInCart.length === 0 ? (
+            <p>No items found</p> // Display message when no items are found
+          ) : (
+            productsInCart.map((product) => (
+              <>
+                <div>Product Name: {product.name}</div>
+                <div>Product Price: {product.price}</div>
+                <hr />
+              </>
+            ))
+          )}
+          <div>
+            Total:{" "}
+            {Math.round(
+              productsInCart.reduce((sum, product) => sum + product.price, 0) *
+                100
+            ) / 100}
+          </div>
+        </div>
+
+        <Footer></Footer>
+      </body>
     </>
   );
 }

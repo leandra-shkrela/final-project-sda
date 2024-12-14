@@ -49,29 +49,35 @@ function Login() {
   return (
     <>
       <Header></Header>
-      {!loaded ? (
-        <p>Loading ....</p>
-      ) : (
-        <form className="form" onSubmit={handleLogin}>
-          <h2>Log In</h2>
-          <input
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button type="submit">Log In</button>
-        </form>
-      )}
-      <Footer></Footer>
+      <body>
+        <div class="main-content">
+          <div className="contact-us">
+            <h2>Log In</h2>
+            {!loaded ? (
+              <p>Loading ....</p>
+            ) : (
+              <form onSubmit={handleLogin}>
+                <input
+                  type="text"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <button type="submit">Log In</button>
+              </form>
+            )}
+          </div>
+        </div>
+        <Footer></Footer>
+      </body>
     </>
   );
 }

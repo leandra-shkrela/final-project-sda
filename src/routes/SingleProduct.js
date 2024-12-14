@@ -38,23 +38,31 @@ function SingleProduct() {
   return (
     <>
       <Header />
-
-      {!loaded ? (
-        <p>Loading ....</p>
-      ) : (
-        <div key={product.id}>
-          <div>Product Id: {product.id}</div>
-          <div>Product Name: {product.name}</div>
-          <div>Product description: {product.description}</div>
-          <div>Product price: {product.price}</div>
-          <img
-            className="product-image"
-            src={product.image}
-            alt={product.image}
-          />
+      <body>
+        <div class="main-content">
+          {!loaded ? (
+            <p>Loading ....</p>
+          ) : (
+            <div class="row">
+              <div className="col-md-5">
+                <img
+                  className="product-image"
+                  src={product.image}
+                  alt={product.image}
+                />
+              </div>
+              <div className="col-md-7">
+                <div>Product Id: {product.id}</div>
+                <div>Product Name: {product.name}</div>
+                <div>Product description: {product.description}</div>
+                <div>Product price: {product.price}</div>
+              </div>
+            </div>
+          )}
         </div>
-      )}
-      <Footer />
+
+        <Footer />
+      </body>
     </>
   );
 }
