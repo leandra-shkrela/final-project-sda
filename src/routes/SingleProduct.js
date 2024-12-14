@@ -37,7 +37,6 @@ function SingleProduct() {
 
   return (
     <>
-      <Header />
       <body>
         <div class="main-content">
           {!loaded ? (
