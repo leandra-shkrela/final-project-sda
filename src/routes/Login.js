@@ -40,6 +40,7 @@ function Login() {
       let token = (Math.random() + 1).toString(36).substring(7);
       localStorage.setItem("token", JSON.stringify(token));
       navigate("/", { replace: true });
+      window.location.reload();
       alert("Logged in successfully!");
     } else {
       alert("Invalid email or password");
@@ -48,7 +49,6 @@ function Login() {
 
   return (
     <>
-      <Header></Header>
       <body>
         <div class="main-content">
           <div className="contact-us">

@@ -8,17 +8,17 @@ import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import queryString from "query-string";
 
-function Shopping() {
-  const [cartsVisibilty, setCartVisible] = useState(false);
+function Shopping({ onMessageChange }) {
+  // const [cartsVisibilty, setCartVisible] = useState(false);
   const params = queryString.parse(window.location.search);
   const [searchTerm, setSearchTerm] = useState("");
   const [productsInCart, setProducts] = useState(
     JSON.parse(localStorage.getItem("shopping-cart")) || []
   );
-  useEffect(() => {
-    localStorage.setItem("shopping-cart", JSON.stringify(productsInCart));
-    console.log(params.categoryId);
-  }, [productsInCart]);
+  // useEffect(() => {
+  //   localStorage.setItem("shopping-cart", JSON.stringify(productsInCart));
+  //   console.log(params.categoryId);
+  // }, [productsInCart]);
   const addProductToCart = (product) => {
     const newProduct = {
       ...product,
@@ -27,28 +27,34 @@ function Shopping() {
     setProducts([...productsInCart, newProduct]);
   };
 
-  const onQuantityChange = (productId, count) => {
-    setProducts((oldState) => {
-      const productsIndex = oldState.findIndex((item) => item.id === productId);
-      if (productsIndex !== -1) {
-        oldState[productsIndex].count = count;
-      }
-      return [...oldState];
-    });
-  };
+  // const onQuantityChange = (productId, count) => {
+  //   setProducts((oldState) => {
+  //     const productsIndex = oldState.findIndex((item) => item.id === productId);
+  //     if (productsIndex !== -1) {
+  //       oldState[productsIndex].count = count;
+  //     }
+  //     return [...oldState];
+  //   });
+  // };
 
-  const onProductRemove = (product) => {
-    setProducts((oldState) => {
-      const productsIndex = oldState.findIndex(
-        (item) => item.id === product.id
-      );
-      if (productsIndex !== -1) {
-        oldState.splice(productsIndex, 1);
-      }
-      return [...oldState];
-    });
+  // const onProductRemove = (product) => {
+  //   setProducts((oldState) => {
+  //     const productsIndex = oldState.findIndex(
+  //       (item) => item.id === product.id
+  //     );
+  //     if (productsIndex !== -1) {
+  //       oldState.splice(productsIndex, 1);
+  //     }
+  //     return [...oldState];
+  //   });
+  // };
+  const handleAdding = (product) => {
+    const newProduct = {
+      ...product,
+      count: 1,
+    };
+    onMessageChange(newProduct);
   };
-
   const handleSearchChange = (e) => {
     console.log(e.target.value);
     setSearchTerm(e.target.value);
@@ -62,25 +68,13 @@ function Shopping() {
 
   return (
     <div className="App">
-      <ShoppingCart
+      {/* <ShoppingCart
         visibilty={cartsVisibilty}
         products={productsInCart}
         onClose={() => setCartVisible(false)}
         onQuantityChange={onQuantityChange}
         onProductRemove={onProductRemove}
-      />
-      <Header></Header>
-      <div className="navbar">
-        <button
-          className="btn shopping-cart-btn"
-          onClick={() => setCartVisible(true)}
-        >
-          <GiShoppingBag size={24} />
-          {productsInCart.length > 0 && (
-            <span className="product-count">{productsInCart.length}</span>
-          )}
-        </button>
-      </div>
+      /> */}
       <main>
         <p className="title">
           Search
@@ -116,10 +110,7 @@ function Shopping() {
                   <Link className="btn" to={`/product?id=${product.id}`}>
                     Detail
                   </Link>
-                  <button
-                    className="btn"
-                    onClick={() => addProductToCart(product)}
-                  >
+                  <button className="btn" onClick={() => handleAdding(product)}>
                     Add to cart
                   </button>
                 </div>

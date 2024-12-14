@@ -41,6 +41,13 @@ html, body {
 	color: #fff;
 	text-transform: uppercase; 
  }
+ 
+
+  
+  /* Make sure the login button is floated to the right */
+  .navbar-nav .login-link {
+	margin-left: auto;  /* Pushes the login link to the far right */
+  }
 
 .btn {
 	border: none;

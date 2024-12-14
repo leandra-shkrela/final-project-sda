@@ -24,7 +24,6 @@ function ContactUs() {
 
   return (
     <>
-      <Header></Header>
       <body>
         <div class="main-content">
           <div className="contact-us">
