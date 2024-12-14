@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import MainPage from "./routes/MainPage";
@@ -10,20 +10,22 @@ import Shopping from "./routes/Shopping";
 import Login from "./routes/Login";
 
 function App() {
+  const [token, setToken] = useState(
+    JSON.parse(localStorage.getItem("token")) || null
+  );
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<MainPage />} /> {/*fq 1*/}
-        <Route path="/product" element={<SingleProduct />} />{" "}
-        {/*te gjitha produktet */}
+        <Route path="/" element={<MainPage />} />
+        <Route path="/product" element={<SingleProduct />} />
         <Route path="/product/:id" element={<SingleProduct />} />
-        {/* single products */}
-        <Route path="/shopping" element={<Shopping />} /> {/* Shopping Cart */}
-        <Route path="/shopping/:categoryId" element={<Shopping />} />{" "}
-        {/* Shopping Cart */}
-        <Route path="/checkout" element={<Checkout />} /> {/* Checkout */}
+        <Route path="/shopping" element={<Shopping />} />
+        <Route path="/shopping/:categoryId" element={<Shopping />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/orders" element={<Login />} />
+        <Route path="/wishlist" element={<Login />} />
       </Routes>
     </Router>
   );

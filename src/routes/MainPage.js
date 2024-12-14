@@ -5,8 +5,8 @@ import Header from "../routes/Header";
 import Footer from "../routes/Footer";
 import { Link } from "react-router-dom";
 import Shopping from "./Shopping";
-
-
+import Carousel from "react-bootstrap/Carousel";
+import ExampleCarouselImage from "../components/CarouselImage";
 
 const HowToOrder = () => {
   return (
@@ -57,10 +57,44 @@ function MainPage() {
   return (
     <div className="App">
       <Header></Header>
-      <main>
-        <div>Welcome to our shop</div>
-        <HowToOrder></HowToOrder>
-        <h2 className="title">Categories</h2>
+      <Carousel>
+        {categories.length === 0 ? (
+          <p>No items found</p> // Display message when no items are found
+        ) : (
+          categories.map((category) => (
+            <Carousel.Item>
+              <ExampleCarouselImage
+                className="carousel"
+                image={category.image}
+                text="First slide"
+              />
+              <Carousel.Caption>
+                <h3>{category.name}</h3>
+                <p>
+                  Nulla vitae elit libero, a pharetra augue mollis interdum.
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          ))
+        )}
+        {/* <Carousel.Item>
+          <ExampleCarouselImage text="Second slide" />
+          <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <ExampleCarouselImage text="Third slide" />
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item> */}
+      </Carousel>
+      {/* 
         <div className="products">
           {categories.length === 0 ? (
             <p>No items found</p> // Display message when no items are found
@@ -84,8 +118,8 @@ function MainPage() {
               </div>
             ))
           )}
-        </div>
-      </main>
+        </div> */}
+
       <Footer></Footer>
     </div>
   );

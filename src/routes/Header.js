@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../style/main.css";
 import Container from "react-bootstrap/Container";
@@ -7,6 +7,9 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 function Header() {
+  const [token, setToken] = useState(
+    JSON.parse(localStorage.getItem("token")) || null
+  );
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -17,15 +20,16 @@ function Header() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/checkout">Checkout</Nav.Link>
             <Nav.Link href="/contactus">Contact Us</Nav.Link>
-
-            <NavDropdown title="Profile" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Setting</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Wishlist</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Orders</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">LogOut</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="/login">Login</Nav.Link>
+            {!token ? (
+              <Nav.Link href="/login">Login</Nav.Link>
+            ) : (
+              <NavDropdown title="Profile" id="basic-nav-dropdown">
+                <NavDropdown.Item href="/wishlist">Wishlist</NavDropdown.Item>
+                <NavDropdown.Item href="/orders">Orders</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="">LogOut</NavDropdown.Item>
+              </NavDropdown>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -4,12 +4,14 @@ import Header from "./Header";
 import Footer from "./Footer";
 import "./Login.css";
 import { users } from "../data/users";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [usersList, setUsersList] = useState([]);
   const [loaded, setLoaded] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,6 +37,9 @@ function Login() {
     e.preventDefault();
     if (users.find((user) => user.name == email && user.password == password)) {
       //localStorage.setItem("token", data.token);
+      let token = (Math.random() + 1).toString(36).substring(7);
+      localStorage.setItem("token", JSON.stringify(token));
+      navigate("/", { replace: true });
       alert("Logged in successfully!");
     } else {
       alert("Invalid email or password");
