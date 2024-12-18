@@ -2,6 +2,7 @@ import React from "react";
 import "../style/shoppingCart.css";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { MdFavorite } from "react-icons/md";
 
 export const ShoppingCart = ({
   visibilty,
@@ -22,6 +23,12 @@ export const ShoppingCart = ({
           <h2>Shopping cart</h2>
           <button className="btn close-btn" onClick={onClose}>
             <AiFillCloseCircle size={30} />
+          </button>
+        </div>
+        <div>
+          <h2>mywishlist</h2>
+          <button className="btn close-btn" onClick={onClose}>
+            <MdFavorite size={30} />
           </button>
         </div>
         <div className="cart-products">

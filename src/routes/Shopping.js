@@ -68,13 +68,6 @@ function Shopping({ onMessageChange }) {
 
   return (
     <div className="App">
-      {/* <ShoppingCart
-        visibilty={cartsVisibilty}
-        products={productsInCart}
-        onClose={() => setCartVisible(false)}
-        onQuantityChange={onQuantityChange}
-        onProductRemove={onProductRemove}
-      /> */}
       <main>
         <p className="title">
           Search
@@ -112,6 +105,10 @@ function Shopping({ onMessageChange }) {
                   </Link>
                   <button className="btn" onClick={() => handleAdding(product)}>
                     Add to cart
+                  </button>
+                  <button className="btn" onClick={() => handleAdding(product)}>
+                    {" "}
+                    Add to Wishlist
                   </button>
                 </div>
               </div>
