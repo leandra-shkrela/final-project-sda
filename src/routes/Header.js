@@ -42,10 +42,10 @@ function Header({ productsInCart, setCartVisible }) {
                 )}
               </button>
               <button
-                className="btn shopping-cart-btn"
+                className="btn mywishlist-btn"
                 onClick={() => setCartVisible(true)}
               >
-                <MdFavorite className="shoppingbag" size={35} />
+                <MdFavorite className="mywishlist" size={35} />
                 {productsInCart.length > 0 && (
                   <span className="product-count">{productsInCart.length}</span>
                 )}

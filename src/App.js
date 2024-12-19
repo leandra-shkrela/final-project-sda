@@ -22,6 +22,9 @@ function App() {
   );
   const [cartsVisibilty, setCartVisible] = useState(false);
 
+  const [mywishlist,setmywishlist]=useState
+  JSON.parse(localStorage.getItem("mywishlist")) || []);
+
   useEffect(() => {
     localStorage.setItem("shopping-cart", JSON.stringify(productsInCart));
   }, [productsInCart]);

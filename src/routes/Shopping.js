@@ -28,27 +28,6 @@ function Shopping({ onMessageChange }) {
     setProducts([...productsInCart, newProduct]);
   };
 
-  // const onQuantityChange = (productId, count) => {
-  //   setProducts((oldState) => {
-  //     const productsIndex = oldState.findIndex((item) => item.id === productId);
-  //     if (productsIndex !== -1) {
-  //       oldState[productsIndex].count = count;
-  //     }
-  //     return [...oldState];
-  //   });
-  // };
-
-  // const onProductRemove = (product) => {
-  //   setProducts((oldState) => {
-  //     const productsIndex = oldState.findIndex(
-  //       (item) => item.id === product.id
-  //     );
-  //     if (productsIndex !== -1) {
-  //       oldState.splice(productsIndex, 1);
-  //     }
-  //     return [...oldState];
-  //   });
-  // };
   const handleAdding = (product) => {
     const newProduct = {
       ...product,
