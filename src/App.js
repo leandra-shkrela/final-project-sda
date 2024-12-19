@@ -81,7 +81,10 @@ function App() {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/orders" element={<Order />} />
-          <Route path="/wishlist" element={<Wishlist />} />
+          <Route
+            path="/mywishlist"
+            element={<Wishlist listChange={addProductToCart} />}
+          />
         </Routes>
       </Router>
     </>

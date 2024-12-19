@@ -15,6 +15,7 @@ function Shopping({ onMessageChange }) {
   const [productsInCart, setProducts] = useState(
     JSON.parse(localStorage.getItem("shopping-cart")) || []
   );
+
   // useEffect(() => {
   //   localStorage.setItem("shopping-cart", JSON.stringify(productsInCart));
   //   console.log(params.categoryId);
@@ -55,6 +56,15 @@ function Shopping({ onMessageChange }) {
     };
     onMessageChange(newProduct);
   };
+
+  const Addingtowishlist = (product) => {
+    const newProduct = {
+      ...product,
+      count: 1,
+    };
+    onMessageChange(newProduct);
+  };
+
   const handleSearchChange = (e) => {
     console.log(e.target.value);
     setSearchTerm(e.target.value);
@@ -106,7 +116,10 @@ function Shopping({ onMessageChange }) {
                   <button className="btn" onClick={() => handleAdding(product)}>
                     Add to cart
                   </button>
-                  <button className="btn" onClick={() => handleAdding(product)}>
+                  <button
+                    className="btn"
+                    onClick={() => Addingtowishlist(product)}
+                  >
                     {" "}
                     Add to Wishlist
                   </button>

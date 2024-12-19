@@ -26,7 +26,7 @@ export const ShoppingCart = ({
           </button>
         </div>
         <div>
-          <h2>mywishlist</h2>
+          {/* <h2>mywishlist</h2> */}
           <button className="btn close-btn" onClick={onClose}>
             <MdFavorite size={30} />
           </button>

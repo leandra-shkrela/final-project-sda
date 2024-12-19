@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { GiShoppingBag } from "react-icons/gi";
+import { MdFavorite } from "react-icons/md";
 
 function Header({ productsInCart, setCartVisible }) {
   const [token, setToken] = useState(
@@ -36,6 +37,15 @@ function Header({ productsInCart, setCartVisible }) {
                 onClick={() => setCartVisible(true)}
               >
                 <GiShoppingBag className="shoppingbag" size={35} />
+                {productsInCart.length > 0 && (
+                  <span className="product-count">{productsInCart.length}</span>
+                )}
+              </button>
+              <button
+                className="btn shopping-cart-btn"
+                onClick={() => setCartVisible(true)}
+              >
+                <MdFavorite className="shoppingbag" size={35} />
                 {productsInCart.length > 0 && (
                   <span className="product-count">{productsInCart.length}</span>
                 )}
