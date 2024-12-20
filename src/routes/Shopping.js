@@ -8,32 +8,16 @@ import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import queryString from "query-string";
 
-function Shopping({ onMessageChange }) {
-  // const [cartsVisibilty, setCartVisible] = useState(false);
+function Shopping({ addProductToCart, addwishlistproducts }) {
   const params = queryString.parse(window.location.search);
   const [searchTerm, setSearchTerm] = useState("");
-  const [productsInCart, setProducts] = useState(
-    JSON.parse(localStorage.getItem("shopping-cart")) || []
-  );
-
-  // useEffect(() => {
-  //   localStorage.setItem("shopping-cart", JSON.stringify(productsInCart));
-  //   console.log(params.categoryId);
-  // }, [productsInCart]);
-  const addProductToCart = (product) => {
-    const newProduct = {
-      ...product,
-      count: 1,
-    };
-    setProducts([...productsInCart, newProduct]);
-  };
 
   const handleAdding = (product) => {
     const newProduct = {
       ...product,
       count: 1,
     };
-    onMessageChange(newProduct);
+    addProductToCart(newProduct);
   };
 
   const Addingtowishlist = (product) => {
@@ -41,7 +25,7 @@ function Shopping({ onMessageChange }) {
       ...product,
       count: 1,
     };
-    onMessageChange(newProduct);
+    addwishlistproducts(newProduct);
   };
 
   const handleSearchChange = (e) => {

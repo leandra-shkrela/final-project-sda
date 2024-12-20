@@ -12,6 +12,7 @@ import ShoppingCart from "./routes/ShoppingCart";
 import Header from "./routes/Header";
 import Order from "./routes/Order";
 import Wishlist from "./routes/Wishlist";
+import WishlistCard from "./routes/WishlistCard";
 
 function App() {
   const [token, setToken] = useState(
@@ -20,14 +21,19 @@ function App() {
   const [productsInCart, setProducts] = useState(
     JSON.parse(localStorage.getItem("shopping-cart")) || []
   );
+
+  const [productsinWishlist, setproductsinWishlist] = useState(
+    JSON.parse(localStorage.getItem("wishlist-cart")) || []
+  );
+
   const [cartsVisibilty, setCartVisible] = useState(false);
 
-  const [mywishlist,setmywishlist]=useState
-  JSON.parse(localStorage.getItem("mywishlist")) || []);
+  const [wishlistvisible, setwishlistvisible] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("shopping-cart", JSON.stringify(productsInCart));
-  }, [productsInCart]);
+    localStorage.setItem("wishlist-cart", JSON.stringify(productsinWishlist));
+  }, [productsInCart, productsinWishlist]);
 
   const addProductToCart = (product) => {
     const newProduct = {
@@ -57,17 +63,34 @@ function App() {
       return [...oldState];
     });
   };
+
+  const addwishlistproducts = (product) => {
+    const newProduct = {
+      ...product,
+      count: 1,
+    };
+    setproductsinWishlist([...productsinWishlist, newProduct]);
+  };
   return (
     <>
       <Header
-        productsInCart={productsInCart}
+        productsInCartLea={productsInCart}
         setCartVisible={setCartVisible}
+        setwishlistvisible={setwishlistvisible}
+        productsinWishlist={productsinWishlist}
       ></Header>
 
       <ShoppingCart
         visibilty={cartsVisibilty}
         products={productsInCart}
         onClose={() => setCartVisible(false)}
+        onQuantityChange={onQuantityChange}
+        onProductRemove={onProductRemove}
+      />
+      <WishlistCard
+        visibilty={wishlistvisible}
+        products={productsinWishlist}
+        onClose={() => setwishlistvisible(false)}
         onQuantityChange={onQuantityChange}
         onProductRemove={onProductRemove}
       />
@@ -78,16 +101,17 @@ function App() {
           <Route path="/product" element={<SingleProduct />} />
           <Route
             path="/shopping"
-            element={<Shopping onMessageChange={addProductToCart} />}
+            element={
+              <Shopping
+                addProductToCart={addProductToCart}
+                addwishlistproducts={addwishlistproducts}
+              />
+            }
           />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/orders" element={<Order />} />
-          <Route
-            path="/mywishlist"
-            element={<Wishlist listChange={addProductToCart} />}
-          />
         </Routes>
       </Router>
     </>

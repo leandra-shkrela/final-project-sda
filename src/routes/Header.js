@@ -7,7 +7,12 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { GiShoppingBag } from "react-icons/gi";
 import { MdFavorite } from "react-icons/md";
 
-function Header({ productsInCart, setCartVisible }) {
+function Header({
+  productsInCartLea,
+  setCartVisible,
+  setwishlistvisible,
+  productsinWishlist,
+}) {
   const [token, setToken] = useState(
     JSON.parse(localStorage.getItem("token")) || null
   );
@@ -31,26 +36,31 @@ function Header({ productsInCart, setCartVisible }) {
               Contact Us
             </Nav.Link>
             <Nav.Link href="#">
-              {" "}
               <button
                 className="btn shopping-cart-btn"
                 onClick={() => setCartVisible(true)}
               >
                 <GiShoppingBag className="shoppingbag" size={35} />
-                {productsInCart.length > 0 && (
-                  <span className="product-count">{productsInCart.length}</span>
-                )}
-              </button>
-              <button
-                className="btn mywishlist-btn"
-                onClick={() => setCartVisible(true)}
-              >
-                <MdFavorite className="mywishlist" size={35} />
-                {productsInCart.length > 0 && (
-                  <span className="product-count">{productsInCart.length}</span>
+                {productsInCartLea.length > 0 && (
+                  <span className="product-count">
+                    {productsInCartLea.length}
+                  </span>
                 )}
               </button>
             </Nav.Link>
+            <Nav.Link href="#">
+              <button
+                className="btn mywishlist-btn"
+                onClick={() => setwishlistvisible(true)}
+              >
+                <MdFavorite className="mywishlist" size={35} />
+                {productsinWishlist.length > 0 && (
+                  <span className="product-count">
+                    {productsinWishlist.length}
+                  </span>
+                )}
+              </button>
+            </Nav.Link>{" "}
             {!token ? (
               <Nav.Link href="/login" style={{ paddingTop: "20px" }}>
                 Login

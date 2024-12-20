@@ -4,7 +4,7 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MdFavorite } from "react-icons/md";
 
-export const ShoppingCart = ({
+export const WishlistCard = ({
   visibilty,
   products,
   onProductRemove,
@@ -20,7 +20,7 @@ export const ShoppingCart = ({
     >
       <div className="shoppingCart">
         <div className="header">
-          <h2>Shopping cart</h2>
+          <h2>Wishlist cart</h2>
           <button className="btn close-btn" onClick={onClose}>
             <AiFillCloseCircle size={30} />
           </button>
@@ -74,4 +74,4 @@ export const ShoppingCart = ({
   );
 };
 
-export default ShoppingCart;
+export default WishlistCard;
